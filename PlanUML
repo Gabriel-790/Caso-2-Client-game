@@ -1,1 +1,13 @@
 Main:
+ - searchGame()
+ - enterGame()
+
+UserInteract:
+ - click()
+ - lockTarget()
+ - deployWinMsg()
+
+Menu:
+ - Los titulos y botones del front END
+
+Esto es lo q tengo del cliente
