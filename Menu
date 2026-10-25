@@ -1,0 +1,57 @@
+import java.awt.*;
+import javax.swing.*;
+
+public class Menu extends JFrame {
+
+    private JLabel etiqueta;
+
+    public Menu() {
+        setTitle("Caso #2");
+        setSize(700, 700);
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        setLocationRelativeTo(null); // centrar en pantalla
+
+         // Etiqueta central para mostrar el resultado de las acciones
+        etiqueta = new JLabel("Selecciona una opción del menú", SwingConstants.CENTER);
+        etiqueta.setFont(new Font("Arial", Font.PLAIN, 18));
+        add(etiqueta, BorderLayout.CENTER);
+
+        // Barra de menú
+        JMenuBar barraMenu = new JMenuBar();
+
+        // Opción 1: Archivo
+        JMenu menuArchivo = new JMenu("Opciones");
+        JMenuItem itemPart1 = new JMenuItem("Partida 1");
+        JMenuItem itemPart2 = new JMenuItem("Partida 2");
+        JMenuItem itemPart3 = new JMenuItem("Partida 3");
+        JMenuItem itemPart4 = new JMenuItem("Partida 4");
+        JMenuItem itemSalir = new JMenuItem("Salir");
+        menuArchivo.add(itemPart1);
+        menuArchivo.addSeparator();
+        menuArchivo.add(itemPart2);
+        menuArchivo.addSeparator();
+        menuArchivo.add(itemPart3);
+        menuArchivo.addSeparator();
+        menuArchivo.add(itemPart4);
+        menuArchivo.addSeparator();
+        menuArchivo.add(itemSalir);
+
+        // Agregar los 3 menús a la barra
+        barraMenu.add(menuArchivo);
+        setJMenuBar(barraMenu);
+
+        // Acciones
+        itemPart1.addActionListener(e -> etiqueta.setText("Entraste a la Partida 1"));
+        itemPart2.addActionListener(e -> etiqueta.setText("Entraste a la Partida 2"));
+        itemPart3.addActionListener(e -> etiqueta.setText("Entraste a la Partida 3"));
+        itemPart4.addActionListener(e -> etiqueta.setText("Entraste a la Partida 4"));
+        itemSalir.addActionListener(e -> System.exit(0));
+    }
+
+    public static void main(String[] args) {
+        SwingUtilities.invokeLater(() -> {
+            Menu ventana = new Menu();
+            ventana.setVisible(true);
+        });
+    }
+}
